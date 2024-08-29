@@ -1,10 +1,10 @@
-import uWS from 'uWebSockets.js';
+import { App as uWSApp } from 'uWebSockets.js';
 
 const PORT = 9001;
 
 const MAIN_ROOM = 'main';
 
-const app = uWS.App().ws('/*', {
+const app = uWSApp().ws('/*', {
   open: (socket) => {
     console.log({ socket });
     socket.subscribe(MAIN_ROOM);
