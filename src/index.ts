@@ -1,6 +1,7 @@
+import { toNumber } from 'lodash-es';
 import { App as uWSApp } from 'uWebSockets.js';
 
-const PORT = 9001;
+const PORT = process.env.PORT ? toNumber(process.env.PORT) : 3000;
 
 const MAIN_ROOM = 'main';
 
@@ -16,7 +17,10 @@ const app = uWSApp().ws('/*', {
 });
 
 app.listen(PORT, (listenSocket) => {
-  if (listenSocket) {
-    console.log('Listening to port 9001');
+  if (!listenSocket) {
+    console.log(`Failed to listen to port ${PORT}`);
+    return;
   }
+
+  console.log(`Listening to port ${PORT}`);
 });
