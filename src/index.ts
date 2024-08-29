@@ -1,7 +1,7 @@
 import { toNumber } from 'lodash-es';
 import { App as uWSApp } from 'uWebSockets.js';
 
-const PORT = process.env.PORT ? toNumber(process.env.PORT) : 9000;
+const PORT = process.env.PORT ? toNumber(process.env.PORT) : 8080;
 
 const MAIN_ROOM = 'main';
 
